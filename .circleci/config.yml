@@ -22,6 +22,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            echo "Prueba RAMA MASTER sin fallos"
             #flake8 --exclude=venv* --statistics -- ANULAMOS FLAKE TEST por quejas de lines muy largas debido a los ARRAYS 
             pytest
 
@@ -46,6 +47,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            echo "Prueba RAMA CON_FALLOS"
             #flake8 --exclude=venv* --statistics -- ANULAMOS FLAKE TEST por quejas de lines muy largas debido a los ARRAYS 
             pytest
 
