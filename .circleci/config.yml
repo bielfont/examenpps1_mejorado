@@ -25,7 +25,6 @@ jobs:
             echo "Prueba RAMA MASTER sin fallos"
             #flake8 --exclude=venv* --statistics -- ANULAMOS FLAKE TEST por quejas de lines muy largas debido a los ARRAYS 
             pytest
-
   build_confallo:
     docker:
       - image: circleci/python:3.7
@@ -59,12 +58,12 @@ workflows:
           filters:
             branches:
               only:
-                - con_fallos
+                - master
   build_confallo:    
     jobs:
       - build_confallo:
           filters:
             branches:
               only:
-                - master
+                - con_fallos
 
