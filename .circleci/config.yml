@@ -1,7 +1,7 @@
 # Python CircleCI 2.0 configuration file
 version: 2
 jobs:
-  build:
+  build_master:
     docker:
       - image: circleci/python:3.7
 
@@ -22,5 +22,47 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            echo "Prueba RAMA MASTER sin fallos"
             #flake8 --exclude=venv* --statistics -- ANULAMOS FLAKE TEST por quejas de lines muy largas debido a los ARRAYS 
             pytest
+  build_confallo:
+    docker:
+      - image: circleci/python:3.7
+
+    working_directory: ~/repo
+
+    steps:
+      # Step 1: obtain repo from GitHub
+      - checkout
+      # Step 2: create virtual env and install dependencies
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      # Step 3: run linter and tests
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            echo "Prueba RAMA CON_FALLOS"
+            #flake8 --exclude=venv* --statistics -- ANULAMOS FLAKE TEST por quejas de lines muy largas debido a los ARRAYS 
+            pytest
+
+workflows:
+  version: 2
+  build_master:    
+    jobs:
+      - build_master:
+          filters:
+            branches:
+              only:
+                - master
+  build_confallo:    
+    jobs:
+      - build_confallo:
+          filters:
+            branches:
+              only:
+                - con_fallos
