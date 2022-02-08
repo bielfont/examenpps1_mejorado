@@ -3,8 +3,7 @@ from datetime import datetime
 
 
 def orden_nombre(lista):
-    #lista.sort(key=lambda x: x['alumne'])
-    pass
+    lista.sort(key=lambda x: x['alumne'])
     return str(lista)
 
 
