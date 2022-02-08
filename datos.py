@@ -13,7 +13,7 @@ students_orden_nom = [
     {'alumne': 'Maria Debe', 'data_naiximent': '10-02-1998'},
     {'alumne': 'Pedro Pasqua', 'data_naiximent': '10-02-2003'}
     ]
-    
+
 students_orden_data = [
     {'alumne': 'Maria Debe', 'data_naiximent': '10-02-1998'},
     {'alumne': 'Juan Gris', 'data_naiximent': '10-02-2000'},
